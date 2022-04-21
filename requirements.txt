@@ -104,3 +104,4 @@ Werkzeug
 widgetsnbextension
 wrapt
 zipp
+imageio

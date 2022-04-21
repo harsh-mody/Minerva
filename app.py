@@ -16,9 +16,9 @@ st.title("Minerva: Neural Style Transfer")
 st.title("")
 st.sidebar.title('Features')
 
-learning_rate = st.sidebar.slider('Learning rate', 0.0, 0.1, .02)
-epochs = st.sidebar.slider('Number of Epochs', 1, 100, 10)
-steps_per_epoch = st.sidebar.slider('Steps Per Epoch', 1, 500, 100)
+learning_rate = st.sidebar.slider('Learning rate', 0.0, 0.1, .01)
+epochs = st.sidebar.slider('Number of Epochs', 1, 100, 50)
+steps_per_epoch = st.sidebar.slider('Steps Per Epoch', 1, 500, 200)
 
 st.markdown(f'<br>', unsafe_allow_html=True)
 

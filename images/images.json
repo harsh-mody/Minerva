@@ -1,0 +1,58 @@
+[
+    {
+        "id": "image1",
+        "name": "Anime - Pablo Picasso",
+        "content": "images/content 01.png",
+        "style": "images/style 01.png",
+        "result": "images/result 01.png"
+    },
+    {
+        "id": "image2",
+        "name": "Anime - Starry Night",
+        "content": "images/content 01.png",
+        "style": "images/style 02.png",
+        "result": "images/result 02.png"
+    },
+    {
+        "id": "image3",
+        "name": "Real Tree - Nature Art Style",
+        "content": "images/content 03.png",
+        "style": "images/style 03.png",
+        "result": "images/result 03.png"
+    },
+    {
+        "id": "image4",
+        "name": "Old and New Japanese Art Styles",
+        "content": "images/content 04.jpeg",
+        "style": "images/style 04.jpeg",
+        "result": "images/result 04.jpeg"
+    },
+    {
+        "id": "image5",
+        "name": "Penelope Cruz - Abstract Art",
+        "content": "images/content 05.png",
+        "style": "images/style 05.png",
+        "result": "images/result 05.png"
+    },
+    {
+        "id": "image6",
+        "name": "Sinking Lady - Abstract Art",
+        "content": "images/content 06.png",
+        "style": "images/style 06.png",
+        "result": "images/result 06.png"
+    },
+    {
+        "id": "image7",
+        "name": "European Art - Indian Art",
+        "content": "images/content 07.png",
+        "style": "images/style 07.png",
+        "result": "images/result 07.png"
+    },
+    {
+        "id": "image8",
+        "name": "Anime - Pablo Art",
+        "content": "images/content 08.jpg",
+        "style": "images/style 08.jpg",
+        "result": "images/result 08.png"
+    }
+]

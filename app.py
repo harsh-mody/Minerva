@@ -1,19 +1,16 @@
-from gettext import Catalog
-from unittest import result
 import streamlit as st
 from streamlit.legacy_caching import caching
-import streamlit.components.v1 as components
 import numpy as np
 import tensorflow as tf
 from PIL import Image
 import json
-
 from img_utils import *
 from style_utils import *
 from style_content_model import *
 
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
+
 st.image("icon.png", width=100)
 st.title("Minerva: Neural Style Transfer")
 st.title("")
@@ -22,6 +19,8 @@ st.sidebar.title('Features')
 learning_rate = st.sidebar.slider('Learning rate', 0.0, 0.1, .02)
 epochs = st.sidebar.slider('Number of Epochs', 1, 100, 10)
 steps_per_epoch = st.sidebar.slider('Steps Per Epoch', 1, 500, 100)
+
+st.markdown(f'<br>', unsafe_allow_html=True)
 
 content_img_buffer = st.file_uploader("Choose a Content Image", type=["png", "jpg", "jpeg"])
 style_img_buffer = st.file_uploader("Choose a Style Image", type=["png", "jpg", "jpeg"])
@@ -42,7 +41,9 @@ def train_step(image):
   with tf.GradientTape() as tape:
     outputs = extractor(image)
     loss = total_loss(outputs, targets, weights)
+
     grad = tape.gradient(loss, image)
+    opt.apply_gradients([(grad, image)])
     image.assign(clip_0_1(image))
 
 @st.cache(allow_output_mutation=True, suppress_st_warning = True)
@@ -64,6 +65,7 @@ if content_img_buffer and style_img_buffer:
     caching.clear_cache()
     image = tf.Variable(content_image)
     extractor = StyleContentModel(style_layers, content_layers)
+    opt = tf.optimizers.Adam(learning_rate=learning_rate, beta_1=0.99, epsilon=1e-1)
 
     targets = {
       "style": extractor(style_image)['style'],
@@ -77,6 +79,7 @@ if content_img_buffer and style_img_buffer:
 
     generated_image = st.empty()
     run_style_transfer(image, epochs, steps_per_epoch)
+
 st.title("")
 st.title("Image Catalog: ")
 st.title("")
